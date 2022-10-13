@@ -1,0 +1,9 @@
+---
+- name: service module demo
+  hosts: ec2
+  become: true
+  tasks:
+        - name: ssm agent restart
+          ansible.builtin.service:
+                  name: "{{ service_name }}"
+                  state: restarted

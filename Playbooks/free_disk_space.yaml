@@ -1,0 +1,15 @@
+---
+- hosts: ec2
+  become: true
+  tasks:
+     - name: find all files that are older than 10 days
+       find:
+         paths: /var/log
+         age: 10d
+         recurse: yes
+       register: filesOlderThan10
+     - name: remove older than 10
+       file:
+          path: "{{ item.path }}" 
+          state: absent
+       with_items: "{{ filesOlderThan10.files }}"

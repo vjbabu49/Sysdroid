@@ -1,0 +1,21 @@
+{% block content %}
+    <h1>{% block title %} Welcome to Sysdroid {% endblock %}</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <form method="post" action="/">
+    <div class="form-group">
+        <input type="submit" name="action" value="Reboot Servers">
+    </div>
+    <div class="form-group">
+        <input type="submit" name="action" value="Restart Service">
+    </div>
+    <div class="form-group">
+        <input type="submit" name="action" value="Malware Scan">
+    </div>
+    <div class="form-group">
+        <input type="submit" name="action" value="Disk Usage">
+    </div>
+    <div class="form-group">
+        <input type="submit" name="action" value="Freeup disk space">
+    </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+---
+- name: service module demo
+  hosts: ec2
+  become: true
+  tasks:
+        - name:  restarting cron service
+          ansible.builtin.service:
+                  name: crond.service
+                  state: restarted

@@ -1,0 +1,8 @@
+---
+- name: Linux Reboot Demo
+  hosts: all
+  become: true
+  tasks:
+        - name: Rebooting Servers
+          reboot:
+                

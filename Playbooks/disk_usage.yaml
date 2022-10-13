@@ -1,0 +1,24 @@
+---
+ - hosts: ec2
+   become: true
+   vars:
+      filesystems:
+         - /
+         - /tmp
+         - /home
+
+      size_too_big: "0"
+   tasks:
+     - shell: df -h "{{ item }}" | tail -n 1 | awk {'print $5 '}  | sed 's/%//g'
+       with_items:
+          - /
+          - /home
+          - /tmp
+       register: test
+     - name: Size is big v2
+       debug:
+           msg:  "{{ item.1 }} is too big! size={{ item.0 }} " 
+       when: item.0 > size_too_big
+       with_together:
+           - "{{ test.results|map(attribute='stdout')|list }}"
+           - "{{ filesystems }}"

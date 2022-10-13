@@ -1,0 +1,9 @@
+---
+- name: service module demo
+  hosts: ec2
+  become: true
+  tasks:
+        - name:  restarting apache2 service
+          ansible.builtin.service:
+                  name: apache2
+                  state: restarted
