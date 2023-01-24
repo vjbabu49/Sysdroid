@@ -15,9 +15,6 @@ jobs:
       if: notContains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
       run: |
        echo say hello
-      else: 
-      run: |
-        exit 1
     - name: test
       if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
       run: |
