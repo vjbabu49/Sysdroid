@@ -8,7 +8,7 @@ jobs:
   check-pr-label-and-comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: yashhy/pr-label-check-and-comment-action@master
+      - uses: vjbabu49/pr-label-check-and-comment-action@main
         with:
           required_labels: '🐛bug, 🎖user-story' <-- add your required labels here
           GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
