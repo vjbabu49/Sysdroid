@@ -16,6 +16,6 @@ jobs:
       run: |
        echo say hello
     - name: test
-      if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
+      if: contains(github.event.comment.body, '/test') == false  # check the comment if it contains the keywords
       run: |
        echo test
