@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: say hello
-      if: not(Contains(github.event.comment.body, '/support'))   # check the comment if it contains the keywords
+      if: ne(Contains(github.event.comment.body, '/support'))   # check the comment if it contains the keywords
       run: |
        echo say hello
     - name: test
