@@ -14,7 +14,7 @@ jobs:
     - name: say hello
       if: ${{ !contains(github.event.comment.body, 'support') }} == true  # check the comment if it contains the keywords
       run: |
-       echo no support word in PR comment
+       echo {{ github.event.comment.body }}
     - name: test
       if: contains(github.event.comment.body, 'test')  # check the comment if it contains the keywords
       run: |
