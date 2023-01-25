@@ -11,8 +11,12 @@ jobs:
     name: pre-commit
     runs-on: ubuntu-latest
     steps:
+    - name: Print comment
+      env:
+          MY_VAR: ${{ github.event.comment.body }}
+      run: |
+          echo $MY_VAR
     - name: say hello
-      
       if: ${{ !contains(github.event.comment.body, 'support') }} == true  # check the comment if it contains the keywords
       run: |
        echo {{ github.event.comment.body }}
